@@ -16,8 +16,9 @@ const Datos = [
     fecha: "okok",
   },
 ];
-
+//-------------------------------------
 //primero hacemos la funcion asincrona:
+//--------------------------------------
 
 /*const getDatos = () => {
 
@@ -28,8 +29,9 @@ const Datos = [
 };
 console.log(getDatos()); // me devuevle undefined...
 */
-
+//----------------------------------
 //se resuelve con una promesa:
+//------------------------------------
 
 const getDatos = () => {
   return new Promise((resolve, reject) => {
@@ -43,8 +45,21 @@ const getDatos = () => {
     }
   });
 };
+
 console.log(
   getDatos()
     .then((respuesta) => console.log(respuesta))
     .catch((error) => console.log(error))
 );
+
+//--------------------------------
+//ahora lo hacemos con await:
+//--------------------------------
+const getData = async () => {
+  try {
+    const data = await getDatos();
+  } catch (e) {
+    console.log(data);
+  }
+};
+getData();
